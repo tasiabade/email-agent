@@ -38,9 +38,20 @@ YOUR_PHONE_NUMBER = os.environ.get(
 # Put credentials.json in the project folder.
 # token.json will be created automatically on first run.
 # ============================================================
+import json as _json
+
 GOOGLE_CREDENTIALS_FILE = "credentials.json"
 GOOGLE_TOKEN_FILE = "token.json"
 
+_creds_json = os.environ.get("CREDENTIALS_JSON")
+if _creds_json:
+    with open("credentials.json", "w") as f:
+        f.write(_creds_json)
+
+_token_json = os.environ.get("TOKEN_JSON")
+if _token_json:
+    with open("token.json", "w") as f:
+        f.write(_token_json)
 # ============================================================
 # ZOOM
 # ============================================================
